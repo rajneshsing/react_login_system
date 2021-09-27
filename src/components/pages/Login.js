@@ -15,7 +15,11 @@ export default function Login() {
     const dispatch = useDispatch()
     const store = useStore()
     const history = useHistory()
+     const user=localStorage.getItem('x-access-token');
 
+	if (user) return <Redirect to="/" />;
+  else if (user === "user") return <Redirect to="/login" />;
+  
     // handle Submit handler function
     const handleSubmit = (event) =>{
         event.preventDefault();
